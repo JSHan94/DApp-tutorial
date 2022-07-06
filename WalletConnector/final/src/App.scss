@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    justify-content: center;
+    
+    .AppBody {
+        margin: 10em 4em 0 4em;
+        padding: 1em;
+        background-color: inherit;
+    }
+
+    .AppActions {
+        justify-content: space-between;
+    }
+}

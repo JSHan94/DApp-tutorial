@@ -1,0 +1,26 @@
+.ConnectWallet {
+    margin: 1em auto 1em auto;
+    max-width: 420px;
+
+    h4 {
+        font-weight: normal;
+        margin: 0 0 1.6em 0;
+        text-align: center;
+    }
+    .FormControl {
+        margin-bottom: 1.6em;
+        
+    }
+}
+
+#OriginChainDropdown,
+#WalletDropdown,
+.DropdownItem {
+    display: flex;
+    align-items: center;
+    
+    .icon {
+        margin-right: 1em;
+
+    }
+}

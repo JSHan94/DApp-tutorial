@@ -1,0 +1,71 @@
+.icon {
+    background: round;
+    width: 32px;
+    height: 32px;
+
+    // Wallets
+    &.metamask {
+        background-image: url("./img/wallets/metamask.svg");
+    }
+
+    &.walletconnect {
+        background-image: url("./img/wallets/walletconnect.svg");
+
+    }
+
+    &.phantom {
+        background-image: url("./img/wallets/phantom.svg");
+
+    }
+
+    &.keplr {
+        background-image: url("./img/wallets/keplr.svg");
+    }
+
+    // Chains
+    &.ethereum {
+        background-image: url("./img/chains/ethereum.svg");
+
+    }
+
+    &.avalanche {
+        background-image: url("./img/chains/avalanche.svg");
+
+    }
+
+    &.solana {
+        background-image: url("./img/chains/solana.svg");
+
+    }
+    
+    &.axl {
+        background-image: url("./img/chains/axl.svg");
+
+    }
+    
+    &.injective {
+        background-image: url("./img/chains/injective.svg");
+
+    }
+    
+    &.juno {
+        background-image: url("./img/chains/juno.svg");
+
+    }
+    
+    &.kava {
+        background-image: url("./img/chains/kava.svg");
+
+    }
+
+    // Other Icons
+    &.external-link {
+        background-image: url("./img/external-link.svg");
+    }
+}
+
+.logo {
+    background: round;
+    width: 36px;
+    height: 36px;
+}

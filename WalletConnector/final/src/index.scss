@@ -1,0 +1,24 @@
+@import url(./assets/assets.scss);
+@import url(./assets/colors.scss);
+
+@font-face {
+  font-family: 'Gotham book';
+  src: url('https://assets.website-files.com/611153e7af981472d8da199c/618d13b9edde405c59e4bb52_Gotham-Book_Web.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: 'Gotham book', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(ellipse at bottom,#0a2549 0,#02041a 100%);
+  color: #dbdbdb !important;
+  min-height: 100vh;
+}
+h4 {
+  line-height: 1.5;
+}
+
