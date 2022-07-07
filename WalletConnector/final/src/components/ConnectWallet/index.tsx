@@ -1,4 +1,4 @@
-import { Alert, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Alert, Button, FormControl, InputLabel, MenuItem, Select, Box } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
 import useWallets from '../../hooks/useWallets';
@@ -19,11 +19,12 @@ export const ConnectWallet = (props: ConnectWalletType) => {
 
     const [wallet, setWallet] = useState<Wallet | null>();
     const [walletId, setWalletId] = useState('');
-
     const [chains, setChains] = useState(new Array<Chain>());
     const [chain, setChain] = useState<Chain | null>();
     const [chainId, setChainId] = useState('');
-    const [address, setAddress] = useState('undefined');
+    const [address, setAddress] = useState('');
+    const [balance, setBalance] = useState('');
+
     const [walletInstalled, setWalletInstalled] = useState<boolean>();
 
     const { enqueueSnackbar } = useSnackbar();
@@ -31,7 +32,8 @@ export const ConnectWallet = (props: ConnectWalletType) => {
         isInstalled,
         isConnected,
         connect,
-        getAddress
+        getAddress,
+        getBalance
     } = useWallets();
 
 
@@ -71,15 +73,17 @@ export const ConnectWallet = (props: ConnectWalletType) => {
         }
     };
 
-
     const handleConnectWallet = async () => {
         try {
             if (wallet && chain) {
                 await connect(wallet, chain);
 
                 onWalletConnected(wallet, chain);
-                enqueueSnackbar("connect called!", { variant: "success" });
-                setAddress(await getAddress(wallet,chain));
+                enqueueSnackbar("Operation success", { variant: "success" });
+                const _address = await getAddress(wallet,chain)
+                setAddress(_address);
+                const _balance = await getBalance(wallet,_address)
+                setBalance(_balance)
             }
         }
         catch (e) {
@@ -94,12 +98,17 @@ export const ConnectWallet = (props: ConnectWalletType) => {
         setChain(null);
         setChainId('');
         setChains([]);
+        setAddress('');
+        setBalance('');
         setWalletInstalled(false);
     }
 
     return (
         <div className='ConnectWallet'>
-            <h4>Wallet Address : {address}</h4>
+            <h4> Wallet Connector </h4>
+            <Box id='AddressBox'>{address}</Box>
+            { wallet?.id === 'metamask' && <Box id='TokenBox'>{balance} wei</Box>}
+
             <FormControl className='FormControl' fullWidth>
                 <InputLabel>Select Wallet</InputLabel>
                 <Select

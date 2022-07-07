@@ -1,6 +1,7 @@
 import { useMetaMask } from "metamask-react";
 import { Wallet } from "../models/Wallet";
 import { Chain, KeplrChain } from "../models/Chain";
+import Web3 from 'web3';
 
 const useWallets = () => {
     const metamask = useMetaMask();
@@ -64,11 +65,25 @@ const useWallets = () => {
                 throw Error(`Unknown wallet with id '${wallet.id}'`);
         }
     }
+
+    const getBalance = async (wallet: Wallet, address:string): Promise<string> => {
+        switch (wallet.id) {
+            case "metamask":
+                const web3 = new Web3(_window.ethereum);
+                // it shows in wei
+                const balance = await web3.eth.getBalance(address)
+                return balance
+            default:
+                throw Error(`Unknown wallet with id '${wallet.id}'`);
+        }
+    }
+
     return {
         isInstalled,
         isConnected,
         connect,
         getAddress,
+        getBalance
     }
 }
 
