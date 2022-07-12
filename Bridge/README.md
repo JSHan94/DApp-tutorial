@@ -4,12 +4,14 @@
 
 - Go >= 1.17 이상 설치 되어있어야함
 - Installation
+
 ```bash
 git clone https://github.com/0xPolygon/polygon-edge.git
 cd polygon-edge/
 go build -o polygon-edge main.go
 ```
 - Setup
+
 ```bash
 # /polygon-edge 폴더
 ./polygon-edge secrets init --data-dir ~/test-chain-1 # address와 Node ID 확인

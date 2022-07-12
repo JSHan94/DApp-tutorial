@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-
+import Transaction from '@ethereumjs/tx'
 var web3 = new Web3();
 // console.log(web3)
 
@@ -23,3 +23,23 @@ const txResult = await web3.eth.accounts.signTransaction({
     gas: 2000000
 }, privateKey)
 console.log(txResult)
+
+var _privateKey = Buffer.from('b0d9204561ef48a75285806b3016823d066b9d5c6557a2f88ad6fb204c79c064', 'hex');
+
+var rawTx = {
+  nonce: '0x00',
+  gasPrice: '0x09184e72a000',
+  gasLimit: '0x2710',
+  to: '0x0000000000000000000000000000000000000000',
+  value: '0x100',
+  data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
+}
+
+Transaction
+var tx = new Tx(rawTx, {'chain':'ropsten'});
+tx.sign(_privateKey);
+
+var serializedTx = tx.serialize();
+
+web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
+.on('receipt', console.log);
