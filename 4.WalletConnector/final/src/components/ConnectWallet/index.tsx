@@ -107,8 +107,9 @@ export const ConnectWallet = (props: ConnectWalletType) => {
         <div className='ConnectWallet'>
             <h4> Wallet Connector </h4>
             <Box id='AddressBox'>{address}</Box>
-            { wallet?.id === 'metamask' && <Box id='TokenBox'>{balance} wei</Box>}
-
+            { wallet?.id === 'metamask' && <Box id='TokenBox'>{balance} eth</Box>}
+            { wallet?.id === 'keplr' && <Box id='TokenBox'>{balance} atom</Box>}
+            { wallet?.id === 'phantom' && <Box id='TokenBox'>{balance} sol</Box>}
             <FormControl className='FormControl' fullWidth>
                 <InputLabel>Select Wallet</InputLabel>
                 <Select

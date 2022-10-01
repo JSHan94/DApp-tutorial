@@ -13,6 +13,7 @@
     "debounce": "1.0.0",
     "debug": "2.2.0",
     "lodash": "4.1.0",
+    "pm2": "^5.2.0",
     "primus": "4.0.5",
     "primus-emit": "1.0.0",
     "primus-spark-latency": "0.1.1",

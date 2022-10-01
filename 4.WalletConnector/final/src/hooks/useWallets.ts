@@ -67,14 +67,19 @@ const useWallets = () => {
     }
 
     const getBalance = async (wallet: Wallet, address:string): Promise<string> => {
+        let balance = "";
         switch (wallet.id) {
             case "metamask":
                 const web3 = new Web3(_window.ethereum);
                 // it shows in wei
-                const balance = await web3.eth.getBalance(address)
+                balance = await web3.eth.getBalance(address)
                 return balance
+            // case "phantom":
+            //     balance = await _window.solana?.getBalance(address)
+            //     return balance
             default:
-                throw Error(`Unknown wallet with id '${wallet.id}'`);
+                return "0";
+                // throw Error(`Unknown wallet with id '${wallet.id}'`);
         }
     }
 
