@@ -1,46 +1,24 @@
 import Web3 from 'web3'
-import Transaction from '@ethereumjs/tx'
-var web3 = new Web3();
-// console.log(web3)
-
+var web3 = new Web3("HTTP://127.0.0.1:7545")
 // 어카운트 생성하기
 const account = web3.eth.accounts.create()
-console.log(account)
+console.log("account: ", account)
 
 // 프라이빗 키를 web3 keystore 표준으로 암호화하기 
 const privateKey = account.privateKey
 const encrypt = web3.eth.accounts.encrypt(privateKey, "pass")
-console.log(encrypt)
-
+// console.log("encrypt: ", encrypt)
 const decrypt = web3.eth.accounts.decrypt(encrypt, "pass")
-console.log(decrypt)
+// console.log("decrypt:", decrypt)
 
+web3.eth.getBalance(account.address).then(console.log)
 
-web3 = new Web3("HTTP://127.0.0.1:7545")
+// 어카운트 개인키로 서명하여 트랜잭션 생성하기
 const txResult = await web3.eth.accounts.signTransaction({
-    to: '0xE392a7f97a6453780FFBADF9cA86EF4EA19F4de2',
-    value: '1000000000',
-    gas: 2000000
+    to: '0x0a0Dd3AeF3AE322C2a40b170809cfA155Ae36155',
+    value: '10000000',
+    gas: 4718,
+    gasPrice: 10,
+    gasLimit: 1000000,
 }, privateKey)
-console.log(txResult)
-
-var _privateKey = Buffer.from('b0d9204561ef48a75285806b3016823d066b9d5c6557a2f88ad6fb204c79c064', 'hex');
-
-var rawTx = {
-  nonce: '0x00',
-  gasPrice: '0x09184e72a000',
-  gasLimit: '0x2710',
-  to: '0x0000000000000000000000000000000000000000',
-  value: '0x100',
-  data: '0x7f7465737432000000000000000000000000000000000000000000000000000000600057'
-}
-
-
-// Sign raw tx with private key with web3 library
-var tx = new Transaction.Transaction(rawTx);
-tx.sign(_privateKey);
-
-var serializedTx = tx.serialize();
-
-web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
-.on('receipt', console.log);
+console.log("txResult: ", txResult)

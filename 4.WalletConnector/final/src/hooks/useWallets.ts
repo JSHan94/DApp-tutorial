@@ -20,6 +20,19 @@ const useWallets = () => {
         }
     }
 
+    const getPhantomProvider = () => {
+        if ('phantom' in _window) {
+          const provider = _window.phantom?.solana;
+      
+          if (provider?.isPhantom) {
+            return provider;
+          }
+        }
+      
+        window.open('https://phantom.app/', '_blank');
+      };
+
+
     const isConnected = (wallet: Wallet): boolean => {
         switch (wallet.id) {
             case "keplr":
@@ -71,8 +84,9 @@ const useWallets = () => {
         switch (wallet.id) {
             case "metamask":
                 const web3 = new Web3(_window.ethereum);
-                // it shows in wei
-                balance = await web3.eth.getBalance(address)
+                balance = (await web3.eth.getBalance(address))
+                // balance string to number
+                balance = web3.utils.fromWei(balance, 'ether');
                 return balance
             // case "phantom":
             //     balance = await _window.solana?.getBalance(address)

@@ -11,6 +11,7 @@ export type ConnectWalletType = {
     onWalletConnected: (wallet: Wallet, chain: Chain) => void
 }
 
+
 export const ConnectWallet = (props: ConnectWalletType) => {
     const {
         wallets,
@@ -24,7 +25,7 @@ export const ConnectWallet = (props: ConnectWalletType) => {
     const [chainId, setChainId] = useState('');
     const [address, setAddress] = useState('');
     const [balance, setBalance] = useState('');
-
+    
     const [walletInstalled, setWalletInstalled] = useState<boolean>();
 
     const { enqueueSnackbar } = useSnackbar();
