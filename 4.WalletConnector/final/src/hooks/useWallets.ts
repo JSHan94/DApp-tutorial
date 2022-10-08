@@ -88,12 +88,13 @@ const useWallets = () => {
                 // balance string to number
                 balance = web3.utils.fromWei(balance, 'ether');
                 return balance
-            // case "phantom":
-            //     balance = await _window.solana?.getBalance(address)
-            //     return balance
+            // 이 부분에 phantom, keplr 등 각 지갑에서 지원하는 코인을 잔고 확인을 추가하시면 됩니다
+            case "keplr":
+                return "0"
+            case "phantom":
+                return "0"
             default:
-                return "0";
-                // throw Error(`Unknown wallet with id '${wallet.id}'`);
+                throw Error(`Unknown wallet with id '${wallet.id}'`);
         }
     }
 
