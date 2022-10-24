@@ -1,0 +1,32 @@
+{
+    "chains": [
+      {
+        "name": "Ganache",
+        "type": "ethereum",
+        "id": "0",
+        "endpoint": "http://localhost:7545",
+        "from": "0xe403fA02eA982CBC118179Fbb8C15ad3B93b0740",
+        "opts": {
+          "bridge": "0xEBdB6E90e63f57DCb96b93CfEa5AEB9C64117eBA",
+          "erc20Handler": "0x25b9502197339955D94dB12628A45471A1730361",
+          "genericHandler": "0x25b9502197339955D94dB12628A45471A1730361",
+          "gasLimit": "8000000",
+          "maxGasPrice": "10000000000"
+        }
+      },
+      {
+        "name": "Polygon",
+        "type": "ethereum",
+        "id": "2",
+        "endpoint": "http://localhost:8545",
+        "from": "0xe403fA02eA982CBC118179Fbb8C15ad3B93b0740",
+        "opts": {
+          "bridge": "0x8A55F2824171dF2C14adc2B0d13a625909B7fE04",
+          "erc20Handler": "0x69482197b89db7b7133a51b45ced3aA505b5a14c",
+          "genericHandler": "0x69482197b89db7b7133a51b45ced3aA505b5a14c",
+          "gasLimit": "5000000",
+          "maxGasPrice": "10000000000"
+        }
+      }
+    ]
+  }

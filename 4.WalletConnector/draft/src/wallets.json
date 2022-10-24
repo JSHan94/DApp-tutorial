@@ -1,0 +1,56 @@
+[
+    {
+        "id": "keplr",
+        "name": "Keplr",
+        "icon": "keplr",
+        "chains": [
+            {
+                "id": "axl",
+                "name": "Axelar",
+                "keplrChainId" : "axelar-dojo-1",
+                "icon": "axl"
+            },
+            {
+                "id": "juno",
+                "name": "Juno",
+                "keplrChainId" : "juno-1",
+                "icon": "juno"
+            },
+            {
+                "id": "kava",
+                "name": "Kava",
+                "keplrChainId" : "kava_2222-10",
+                "icon": "kava"
+            }
+        ]
+    },
+    {
+        "id": "metamask",
+        "name": "MetaMask",
+        "icon": "metamask",
+        "chains": [
+            {
+                "id": "eth",
+                "name": "Ethereum",
+                "icon": "ethereum"
+            },
+            {
+                "id": "avax",
+                "name": "Avalanche",
+                "icon": "avalanche"
+            }
+        ]
+    },
+    {
+        "id": "phantom",
+        "name": "Phantom",
+        "icon": "phantom",
+        "chains": [
+            {
+                "id": "sol",
+                "name": "Solana",
+                "icon": "solana"
+            }
+        ]
+    }
+]
